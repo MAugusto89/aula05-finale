@@ -35,27 +35,31 @@ nav a:hover {
 }
 
 #hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-image);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    var(--hero-image);
   height: 500px;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
   padding: 10px;
+  position: relative;
 }
 
 #hero-text {
   position: absolute;
-  color: white;
   top: 50%;
-  left: 50px;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 80%;
+  /*border: 5px solid white;*/
+  /*padding: 20px;*/
 }
 
 #hero-text h1 {
   margin: 0;
   font-family: 'bold';
-  font-size: 500%;
+  font-size: 300%;
 }
 
 #hero-text p {
@@ -63,72 +67,67 @@ nav a:hover {
   font-size: 200%;
 }
 
-.slogan {
-  padding: 20px 30px;
+.brand-message {
   display: flex;
+  padding: 20px 30px;
 }
 
-
-.slogan h1 {
-  font-family: 'bold';
-  font-size: 300%;
+.brand-message:nth-child(even) {
+  background: linear-gradient(to right, #e3ba8f, #fff);
+  flex-direction: row-reverse;
 }
 
-.slogan p {
-  font-family: 'regular';
-  font-size: 150%;
-}
-
-.slogan-left{
+.brand-message-left {
   width: 70%;
 }
 
-.slogan-right {
-  text-align: center;
+.brand-message-left h1 {
+  font-family: 'bold';
+}
+
+.brand-message-left p {
+  font-family: 'regular';
+  font-size: 120%;
+}
+
+.brand-message-right {
   width: 30%;
+  text-align: center;
 }
 
-.slogan:nth-child(even) {
-  flex-direction: row-reverse;
-  background: linear-gradient(to right, #f4ede4, #fff);
-}
-
-.slogan:nth-child(even) .slogan-left {
-  text-align: right;
-}
-
-.slogan img {
+.brand-message-right img {
   width: 50%;
 }
 
 #gear {
-  animation: rotation 5s infinite linear;
+  animation: rotate 5s infinite linear;
 }
 
 #chart {
   position: relative;
-  left: -1000px;
-  animation: slideLeft 1s;
-  animation-timing-function: ease-out;
+  left: -100%;
   opacity: 0;
-  transition: opacity 2s, transform 1s;
+  animation: slideToLeft 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  transition: opacity 3s;
 }
 
-.slogan:hover #chart {
-  animation: slideRight 1s;
-  animation-timing-function: ease-out;
+.brand-message:hover #chart {
+  animation: slideToRight 1s;
   animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
   opacity: 1;
 }
 
 #values {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 30px;
 }
 
-#values:hover * {
+#values:hover .value-card {
   animation: none;
 }
 
@@ -138,8 +137,11 @@ nav a:hover {
   text-align: center;
   padding: 30px;
   border-radius: 50px;
-  background: #ffffff;
-  box-shadow:  20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #fff;
+  background-color: #fff;
+}
+
+.value-card:nth-child(1) {
   animation: shake1 1s infinite linear;
 }
 
@@ -150,7 +152,6 @@ nav a:hover {
 .value-card:nth-child(3) {
   animation: shake3 1s infinite linear;
 }
-
 
 .value-card img {
   border-radius: 10px;
@@ -165,15 +166,42 @@ nav a:hover {
   font-family: 'regular';
 }
 
-#content{
-  padding: 20px;
+footer {
+  background: linear-gradient(to right, #111, #24252a);
+  margin-top: 30px;
+  padding: 30px 20px;
+  display: flex;
+  align-items: baseline;
+  color: white;
 }
 
-#about-title{
+#copyright {
+  margin-right: 40px;
+}
+
+#copyright span {
   font-family: 'bold';
 }
 
-.about-paragraph{
+#address {
   font-family: 'regular';
-  text-indent: 20px;
+}
+
+#address h3 {
+  font-family: 'bold';
+}
+
+#content {
+  padding: 20px;
+}
+
+#about-title {
+  font-family: 'bold';
+}
+
+.about-paragraph {
+  font-family: 'regular';
+  text-indent: 30px;
+  text-align: justify;
+  /*line-height: 1.6;*/
 }
